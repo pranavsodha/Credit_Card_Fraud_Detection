@@ -1,3 +1,4 @@
+print("Student Profile & Marking System.....")
 # Create A Basic Variables
 
 student_id=250210132061
@@ -47,3 +48,5 @@ print(marks1,marks2)
 # Display Student Profile 
 
 print("Hello My Name Is:\t "+name+"And I Am In:\n"+college+"I am In Semester:"+semester+" The College is in:"+city)
+
+# Marks=9/10
