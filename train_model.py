@@ -1,11 +1,14 @@
 import pandas as pd
+from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
+BASE_DIR = Path(__file__).resolve().parent
+
 # 1. Load the dataset (replace with your file path)
 print("Loading data...")
-df = pd.read_csv("creditcard.csv")
+df = pd.read_csv(BASE_DIR / "creditcard.csv")
 
 # 2. Separate features and target (assuming 'Class' is the fraud indicator)
 X = df.drop(columns=['Class'])
@@ -21,6 +24,6 @@ model.fit(X_train, y_train)
 
 # 5. Save the trained model and test data for real-time simulation
 print("Saving model and test data...")
-joblib.dump(model, "fraud_model.pkl")
-X_test.head(100).to_csv("simulation_stream.csv", index=False) 
+joblib.dump(model, BASE_DIR / "fraud_model.pkl")
+X_test.head(100).to_csv(BASE_DIR / "simulation_stream.csv", index=False)
 print("Setup complete!")
